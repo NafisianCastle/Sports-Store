@@ -19,10 +19,10 @@ namespace SportsStore.Controllers
             return View(new ProductsListViewModel
             {
                 Products = _repository.Products
-                                .Where(p => p.Category == category || category == null)
-                                .OrderBy(p => p.ProductId)
-                                .Skip((productPage - 1) * PageSize)
-                                .Take(PageSize),
+                    .Where(p => p.Category == category || category == null)
+                    .OrderBy(p => p.ProductId)
+                    .Skip((productPage - 1) * PageSize)
+                    .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = productPage,
