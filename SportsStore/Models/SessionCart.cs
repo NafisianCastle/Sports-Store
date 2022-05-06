@@ -9,12 +9,12 @@ namespace SportsStore.Models
     public class SessionCart : Cart
     {
         [JsonIgnore]
-        public ISession Session { get; set; }
+        private ISession Session { get; set; }
 
         public static Cart GetCart(IServiceProvider services)
         {
-            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
-            SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
+            var session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+            var cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
             cart.Session = session;
             return cart;
         }
@@ -27,7 +27,7 @@ namespace SportsStore.Models
         public override void RemoveLine(Product product)
         {
             base.RemoveLine(product);
-            Session.SetJson("Cart",this);
+            Session.SetJson("Cart", this);
         }
         public override void Clear()
         {
