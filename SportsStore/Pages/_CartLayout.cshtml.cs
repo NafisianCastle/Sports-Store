@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SportsStore.Pages
 {
-    public class _CartLayoutModel : PageModel
+    public class CartLayoutModel : PageModel
     {
         public void OnGet()
         {
