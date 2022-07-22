@@ -1,13 +1,13 @@
-﻿using System.Linq;
-using System.Text;
-using System.Text.Json;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Moq;
 using SportsStore.Models;
 using SportsStore.Pages;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
 using Xunit;
 
 namespace SportsStore.Tests
@@ -34,7 +34,7 @@ namespace SportsStore.Tests
             mockContext.SetupGet(x => x.Session).Returns(mockSession.Object);
 
             //action
-            var cartModel = new CartModel(mockRepo.Object,testCart)
+            var cartModel = new CartModel(mockRepo.Object, testCart)
             {
                 PageContext = new PageContext(new ActionContext
                 {
@@ -67,7 +67,7 @@ namespace SportsStore.Tests
             var mockContext = new Mock<HttpContext>();
             mockContext.SetupGet(c => c.Session).Returns(mockSession.Object);
             // Action
-            var cartModel = new CartModel(mockRepo.Object,testCart)
+            var cartModel = new CartModel(mockRepo.Object, testCart)
             {
                 PageContext = new PageContext(new ActionContext
                 {

@@ -1,8 +1,7 @@
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SportsStore.Infrastructure;
 using SportsStore.Models;
+using System.Linq;
 
 namespace SportsStore.Pages
 {
@@ -34,7 +33,7 @@ namespace SportsStore.Pages
         public IActionResult OnPostRemove(long productId, string returnUrl)
         {
             Cart.RemoveLine(Cart.Lines.First(cl => cl.Product.ProductId == productId).Product);
-            return RedirectToPage(new {returnUrl });
+            return RedirectToPage(new { returnUrl });
         }
     }
 }

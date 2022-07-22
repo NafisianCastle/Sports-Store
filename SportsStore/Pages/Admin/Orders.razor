@@ -1,10 +1,5 @@
 ﻿@page "/admin/orders"
 @inherits OwningComponentBase<IOrderRepository>
-
-<OrderTable TableTitle="Unshipped Orders" Orders="UnshippedOrders" ButtonLabel="Shipped" OrderSelected="ShipOrder" />
-<OrderTable TableTitle="Shipped Orders" Orders="ShippedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder" />
-<button class="btn btn-info" @onclick="@(e=>UpdateData())"> Refresh Data</button>
-
 @code
 {
     private IOrderRepository Repository => Service;
@@ -37,3 +32,9 @@
 
     private void ResetOrder(int id) => UpdateOrder(id, false);
 }
+
+<OrderTable TableTitle="Unshipped Orders" Orders="UnshippedOrders" ButtonLabel="Shipped" OrderSelected="ShipOrder" />
+<OrderTable TableTitle="Shipped Orders" Orders="ShippedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder" />
+<button class="btn btn-info" @onclick="@(e=>UpdateData())"> Refresh Data</button>
+
+
