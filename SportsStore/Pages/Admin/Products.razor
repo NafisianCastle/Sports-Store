@@ -18,7 +18,11 @@
 
     private string GetDetailsUrl(long id) => $"/admin/products/details/{id}";
     private string GetEditUrl(long id) => $"/admin/products/edit/{id}";
-
+    public async Task DeleteProduct(Product p)
+    {
+        Repository.DeleteProduct(p);
+        await UpdateData();
+    }
 }
 
 <table class="table table-sm table-striped table-bordered">
@@ -47,6 +51,11 @@
                         </NavLink><NavLink class="btn btn-sm btn-warning" href="@GetEditUrl(p.ProductId)">
                             Edit
                         </NavLink>
+
+                        <button class="btn btn-danger btn-sm"
+                        @onclick="@(e => DeleteProduct(p))">
+                            Delete
+                        </button>
                     </td>
                 </tr>
             }
