@@ -1,4 +1,5 @@
 ﻿@using SportsStore.Infrastructure
+@using System.Net
 @model Cart
 
 <div class="">
@@ -10,7 +11,7 @@
             @Model.ComputeTotalValue().ToString("C")
         </small>
     }
-    <a class="btn btn-secondary btn-sm" asp-page="/Cart" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()" >
+    <a class="btn btn-secondary btn-sm" asp-page="/Cart" asp-route-returnurl="@WebUtility.HtmlEncode(ViewContext.HttpContext.Request.PathAndQuery())" >
         <i class="fa fa-shopping-cart"></i>
     </a>
 </div>

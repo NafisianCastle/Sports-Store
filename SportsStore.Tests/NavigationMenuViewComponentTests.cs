@@ -25,7 +25,16 @@ namespace SportsStore.Tests
                 new Product {ProductId = 4, Name = "P4", Category = "Oranges"},
             }).AsQueryable());
 
-            var target = new NavigationMenuViewComponent(mock.Object);
+            var target = new NavigationMenuViewComponent(mock.Object)
+            {
+                ViewComponentContext = new ViewComponentContext
+                {
+                    ViewContext = new ViewContext
+                    {
+                        RouteData = new RouteData()
+                    }
+                }
+            };
 
             //Act - get the set of categories
             var results = ((IEnumerable<string>)((ViewViewComponentResult)target.Invoke()).ViewData.Model).ToArray();

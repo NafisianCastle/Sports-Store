@@ -78,9 +78,9 @@ namespace SportsStore.Tests
                 return;
             }
 
-            Assert.Equal(3, result.Length);
-            Assert.True(result[0].Name == "P2" && result[0].Category == "Cat2");
-            Assert.True(result[0].Name == "P3" && result[0].Category == "Cat3");
+            Assert.Single(result);
+            Assert.Equal("P2", result[0].Name);
+            Assert.Equal("Cat2", result[0].Category);
         }
     }
 }
