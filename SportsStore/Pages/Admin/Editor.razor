@@ -16,6 +16,7 @@
         <div class="form-group">
             <label>ID</label>
             <input class="form-control" disabled value="@Product.ProductID" />
+            Product = Repository.Products.FirstOrDefault(p => p.ProductId == Id);
         </div>
     }
     <div class="form-group">
